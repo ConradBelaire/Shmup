@@ -5,6 +5,10 @@ extends Node2D
 
 func _handle_update_life():
 	ui.lives_counter.text = str(Global.lives)
+	
+	if (Global.lives == 0):
+		$GameOver.visible = true
+		get_tree().paused = true
 	pass
 
 # Called when the node enters the scene tree for the first time.

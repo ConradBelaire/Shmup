@@ -43,8 +43,10 @@ position = Vector2(575, 98)
 rotation = 3.14159
 
 [node name="UI" parent="." instance=ExtResource("6_ycgcn")]
+z_index = 1
 offset_left = 1280.0
 offset_right = 1280.0
 
 [node name="GameOver" parent="." instance=ExtResource("7_pisdv")]
 visible = false
+z_index = 1
