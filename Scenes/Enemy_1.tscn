@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3asneoxm836g"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy_1.gd" id="1_6gr0c"]
+[ext_resource type="Texture2D" uid="uid://cqm2qwui6glhj" path="res://Sprites/evil_ship2.png" id="1_60y6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iyy4"]
+size = Vector2(120, 120)
+
+[node name="Enemy 1" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_6gr0c")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_60y6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_1iyy4")
+
+[node name="Gun" type="Marker2D" parent="."]
+position = Vector2(0, -50)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqxf1mvbxx6qp"]
+
+[ext_resource type="Texture2D" uid="uid://cycmxdxpixgi1" path="res://Sprites/cloudy_background.png" id="1_eioyp"]
+[ext_resource type="Script" path="res://Scripts/BackgroundScrolling.gd" id="1_iufiv"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_lbg5x"]
+[ext_resource type="PackedScene" uid="uid://dkn07ulx62gun" path="res://Scenes/Player.tscn" id="3_qoqey"]
+[ext_resource type="PackedScene" uid="uid://c3asneoxm836g" path="res://Scenes/Enemy_1.tscn" id="6_57trc"]
+[ext_resource type="PackedScene" uid="uid://b2q7nbgaodwcx" path="res://Scenes/UI.tscn" id="6_ycgcn"]
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_lbg5x")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(0, 10)
+scroll_base_offset = Vector2(0, 10)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(0, 2400)
+script = ExtResource("1_iufiv")
+
+[node name="CloudyBackground" type="Sprite2D" parent="Background/ParallaxLayer"]
+position = Vector2(640, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_eioyp")
+
+[node name="Player" parent="." instance=ExtResource("3_qoqey")]
+position = Vector2(655, 982)
+scale = Vector2(0.5, 0.5)
+
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(1248, 1048)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(640, 900)
+
+[node name="Enemy 1" parent="." instance=ExtResource("6_57trc")]
+position = Vector2(575, 98)
+rotation = 3.14159
+
+[node name="UI" parent="." instance=ExtResource("6_ycgcn")]
+offset_left = 1280.0
+offset_right = 1280.0

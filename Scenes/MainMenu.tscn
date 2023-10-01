@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c73t4hie7fyue"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
