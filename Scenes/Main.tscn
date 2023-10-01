@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqxf1mvbxx6qp"]
+[gd_scene load_steps=8 format=3 uid="uid://bqxf1mvbxx6qp"]
 
 [ext_resource type="Texture2D" uid="uid://cycmxdxpixgi1" path="res://Sprites/cloudy_background.png" id="1_eioyp"]
 [ext_resource type="Script" path="res://Scripts/BackgroundScrolling.gd" id="1_iufiv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkn07ulx62gun" path="res://Scenes/Player.tscn" id="3_qoqey"]
 [ext_resource type="PackedScene" uid="uid://c3asneoxm836g" path="res://Scenes/Enemy_1.tscn" id="6_57trc"]
 [ext_resource type="PackedScene" uid="uid://b2q7nbgaodwcx" path="res://Scenes/UI.tscn" id="6_ycgcn"]
+[ext_resource type="PackedScene" uid="uid://dl56uwqcor40y" path="res://Scenes/GameOver.tscn" id="7_pisdv"]
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -42,5 +43,10 @@ position = Vector2(575, 98)
 rotation = 3.14159
 
 [node name="UI" parent="." instance=ExtResource("6_ycgcn")]
+z_index = 1
 offset_left = 1280.0
 offset_right = 1280.0
+
+[node name="GameOver" parent="." instance=ExtResource("7_pisdv")]
+visible = false
+z_index = 1
