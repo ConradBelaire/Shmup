@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Shmup"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/ship2.png"
 
 [autoload]
 
@@ -24,6 +24,10 @@ Global="*res://Scenes/Global.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
