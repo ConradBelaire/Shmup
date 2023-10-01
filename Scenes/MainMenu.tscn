@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsjti107icjlc"]
+[gd_scene load_steps=3 format=3 uid="uid://bsjti107icjlc"]
 
 [ext_resource type="Texture2D" uid="uid://wy415y51xtws" path="res://Sprites/Logo.png" id="1_1lmqc"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_53st2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_53st2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -40,14 +42,17 @@ layout_mode = 2
 theme_override_constants/separation = 170
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 90
 text = "Start"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 90
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
