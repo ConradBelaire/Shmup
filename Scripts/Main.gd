@@ -29,10 +29,6 @@ func _ready():
 	$GameOver.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_return_timer_timeout():
 	get_tree().paused = false
