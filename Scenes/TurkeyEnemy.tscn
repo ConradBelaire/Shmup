@@ -21,7 +21,6 @@ shape = SubResource("RectangleShape2D_1iyy4")
 position = Vector2(0, 68)
 
 [node name="Dinnerplate" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("3_rdta3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

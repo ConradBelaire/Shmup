@@ -37,5 +37,8 @@ func _on_return_timer_timeout():
 
 
 func _on_enemy_1_defeated():
+	# Last enemy calls signal before queue_free()ing itself
+	if (get_tree().get_nodes_in_group("Enemy").size() != 1): 
+		return
 	var turkey_enemy = turkey_enemy_scene.instantiate()
 	add_child(turkey_enemy)
