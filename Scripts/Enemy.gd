@@ -13,13 +13,15 @@ var hp_thresholds = [-1] # at hp_thresholds[phase-1], advance phase
 var pattern_scenes = []
 var pattern
 
-@onready var top_left = Vector2(owner.find_child("TopLeft").position)
-@onready var bottom_right = Vector2(owner.find_child("BottomRight").position)
+@onready var top_left = Vector2(get_parent().find_child("TopLeft").position)
+@onready var bottom_right = Vector2(get_parent().find_child("BottomRight").position)
 
 var dead = false
 var death_timer = 0
 
 var explosion_sprite = preload("res://Sprites/explosion.png")
+
+signal defeated
 
 func _hit():
 	hp -= 1
@@ -40,7 +42,9 @@ func _change_phase(phase_num):
 	pattern._init_vars($Gun.position, owner)
 	add_child(pattern)
 
-
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		body._hit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,9 +1,5 @@
 extends "res://Scripts/Enemy.gd"
 
-var firerate = 5
-var shotspeed = 500
-var shot_timer = 0
-
 var going_left = false
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +13,8 @@ func _ready():
 	add_child(pattern)
 	
 	hp_thresholds = [15,-1]
-	hp = 30
+	hp = 0
+	speed = 100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +22,7 @@ func _process(delta):
 	if (dead):
 		death_timer -= delta
 		if (death_timer <= 0):
+			emit_signal("defeated")
 			queue_free()
 		return
 	var velocity

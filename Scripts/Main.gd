@@ -6,6 +6,7 @@ extends Node2D
 @export var starting_lives = 3
 
 @onready var menu_scene = load("res://Scenes/MainMenu.tscn")
+@onready var turkey_enemy_scene = preload("res://Scenes/TurkeyEnemy.tscn")
 
 var game_over = false
 
@@ -33,3 +34,8 @@ func _ready():
 func _on_return_timer_timeout():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(menu_scene)
+
+
+func _on_enemy_1_defeated():
+	var turkey_enemy = turkey_enemy_scene.instantiate()
+	add_child(turkey_enemy)

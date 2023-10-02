@@ -10,7 +10,7 @@ var top_left : Vector2
 var bottom_right : Vector2
 
 var firerate = 5
-var shotspeed = 500
+var shotspeed = 1000
 var shot_timer = 0
 
 var dead = false
@@ -22,7 +22,7 @@ func _shoot():
 	for i in 4:
 		var inst = bullet.instantiate()
 		owner.add_child(inst)
-		inst._init_vars(shotspeed, 95 - 2.5*i, find_child("Gun" + str(i+1)).global_position, 0)
+		inst._init_vars(shotspeed, 91.5 - 1*i, find_child("Gun" + str(i+1)).global_position, 0)
 	shot_timer = 1.0 / firerate
 	
 
