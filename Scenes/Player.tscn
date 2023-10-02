@@ -46,7 +46,7 @@ bullet = ExtResource("2_jewrf")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j3ppw")
 animation = &"Invuln"
-frame_progress = 0.9402
+frame_progress = 0.41086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_y32mq")

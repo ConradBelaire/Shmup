@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 300
-@export var slow_speed = 100
+@export var slow_speed = 150
 @export var bullet: PackedScene
 
 signal update_life
