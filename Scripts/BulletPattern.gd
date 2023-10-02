@@ -11,10 +11,10 @@ func _init_vars(position, scene, player = null):
 	target_scene = scene
 	self.player = player
 
-func _shoot(speed, angle, position, d_angle):
+func _shoot(speed, angle, position, d_angle, d_angle_timeout = 1.0):
 	var inst = bullet.instantiate()
 	target_scene.add_child(inst)
-	inst._init_vars(speed, angle, position, d_angle)
+	inst._init_vars(speed, angle, position, d_angle, d_angle_timeout)
 	
 
 # Returns an int you add to a base angle to spread out the bullets when shooting a blast

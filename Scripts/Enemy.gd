@@ -11,7 +11,7 @@ var hp_thresholds = [-1] # at hp_thresholds[phase-1], advance phase
 # Keep -1 at end so no array out of bounds on last phase
 
 var pattern_scenes = []
-var pattern
+var pattern : BulletPattern
 
 @onready var top_left = Vector2(get_parent().find_child("TopLeft").position)
 @onready var bottom_right = Vector2(get_parent().find_child("BottomRight").position)

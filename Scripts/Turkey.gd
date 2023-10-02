@@ -12,7 +12,7 @@ func _ready():
 	pattern_scenes = [preload("res://Scenes/TurkeyPattern1.tscn")]
 	
 	hp_thresholds = [-1]
-	hp = 200
+	hp = 500
 	speed = 300
 
 
