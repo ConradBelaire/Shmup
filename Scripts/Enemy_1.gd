@@ -9,11 +9,11 @@ func _ready():
 		preload("res://Scenes/Pattern2.tscn")]
 	
 	pattern = pattern_scenes[0].instantiate()
-	pattern._init_vars($Gun.position, owner)
+	pattern._init_vars($Gun.position, get_parent())
 	add_child(pattern)
 	
 	hp_thresholds = [15,-1]
-	hp = 0
+	hp = 5
 	speed = 100
 
 

@@ -13,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	position = get_parent().position # No clue why pattern won't follow its parent otherwise
 	if (step < 3):
 		_subpattern_1(delta)
 	elif (step < 5):
@@ -57,7 +58,7 @@ func _subpattern_2(delta):
 		var angle_vec = player.position - position
 		var angle = -rad_to_deg(angle_vec.angle())
 		_shoot(300, angle, position, 0)
-		alt_shottimer = 0.3
+		alt_shottimer = 0.4
 		
 	
 	if (step_timer > 0.0):

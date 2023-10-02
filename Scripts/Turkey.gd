@@ -13,7 +13,7 @@ func _ready():
 	
 	hp_thresholds = [-1]
 	hp = 500
-	speed = 300
+	speed = 50
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,3 +31,19 @@ func _process(delta):
 		return
 	
 	$Dinnerplate.position.y -= 200 * delta
+	
+	if (dead):
+		death_timer -= delta
+		if (death_timer <= 0):
+			emit_signal("defeated")
+			queue_free()
+		return
+	var velocity
+	if (!going_left):
+		velocity = speed * delta
+	else:
+		velocity = speed * delta * -1
+	position.x += velocity
+	if (position.x - 200 < top_left.x || position.x + 200 > bottom_right.x):
+		going_left = !going_left
+		position = position.clamp(top_left, bottom_right)
