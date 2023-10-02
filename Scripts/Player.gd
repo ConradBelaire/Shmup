@@ -15,6 +15,8 @@ var shot_timer = 0
 
 var dead = false
 var death_timer = 0
+var invuln_timer = 0.0
+var invuln = false
 
 func _shoot():
 	if (shot_timer > 0):
@@ -27,13 +29,14 @@ func _shoot():
 	
 
 func _hit():
-	print ("Kaboom!")
-	$Sprite.play("Explode")
-	#self.remove_from_group("Enemy")
-	death_timer = 1.0
-	dead = true
-	Global.lives -= 1
-	emit_signal("update_life")
+	if (!dead && !invuln):
+		print ("Kaboom!")
+		$Sprite.play("Explode")
+		#self.remove_from_group("Enemy")
+		death_timer = 1.0
+		dead = true
+		Global.lives -= 1
+		emit_signal("update_life")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,13 +55,21 @@ func _process(delta):
 			if (Global.lives > 0):
 				position = owner.find_child("PlayerSpawn").position
 				dead = false
-				death_timer = 1.0
-				$Sprite.play("default")
+				$Sprite.play("Invuln")
+				invuln_timer = 1.5
+				invuln = true
 			else:
 				print("Game over!")
 		else: 
 			death_timer -= delta
 		return
+	
+	if (invuln && invuln_timer <= 0):
+		invuln = false
+		$Sprite.play("default")
+	elif (invuln_timer > 0):
+		invuln_timer -= delta
+	
 	shot_timer -= delta
 	if Input.is_action_pressed("fire"):
 		_shoot()

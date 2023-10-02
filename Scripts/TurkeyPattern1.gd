@@ -24,7 +24,7 @@ func _process(delta):
 					var angle_vec = player.position - position
 					var angle = -rad_to_deg(angle_vec.angle())
 					for i in 5:
-						_shoot(300, angle + 10 - 5*i , position, 10 - 5*i)
+						_shoot(300, angle + 10 - 5*i , position, -20 + 10*i)
 					
 				else:
 					shottimer -= delta
