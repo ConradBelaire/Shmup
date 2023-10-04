@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 300
-@export var slow_speed = 100
+@export var slow_speed = 150
 @export var bullet: PackedScene
 
 signal update_life
@@ -10,11 +10,13 @@ var top_left : Vector2
 var bottom_right : Vector2
 
 var firerate = 5
-var shotspeed = 500
+var shotspeed = 1000
 var shot_timer = 0
 
 var dead = false
 var death_timer = 0
+var invuln_timer = 0.0
+var invuln = false
 
 func _shoot():
 	if (shot_timer > 0):
@@ -22,18 +24,19 @@ func _shoot():
 	for i in 4:
 		var inst = bullet.instantiate()
 		owner.add_child(inst)
-		inst._init_vars(shotspeed, 95 - 2.5*i, find_child("Gun" + str(i+1)).global_position, 0)
+		inst._init_vars(shotspeed, 91.5 - 1*i, find_child("Gun" + str(i+1)).global_position, 0)
 	shot_timer = 1.0 / firerate
 	
 
 func _hit():
-	print ("Kaboom!")
-	$Sprite.play("Explode")
-	#self.remove_from_group("Enemy")
-	death_timer = 1.0
-	dead = true
-	Global.lives -= 1
-	emit_signal("update_life")
+	if (!dead && !invuln):
+		print ("Kaboom!")
+		$Sprite.play("Explode")
+		#self.remove_from_group("Enemy")
+		death_timer = 1.0
+		dead = true
+		Global.lives -= 1
+		emit_signal("update_life")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,13 +55,21 @@ func _process(delta):
 			if (Global.lives > 0):
 				position = owner.find_child("PlayerSpawn").position
 				dead = false
-				death_timer = 1.0
-				$Sprite.play("default")
+				$Sprite.play("Invuln")
+				invuln_timer = 1.5
+				invuln = true
 			else:
 				print("Game over!")
 		else: 
 			death_timer -= delta
 		return
+	
+	if (invuln && invuln_timer <= 0):
+		invuln = false
+		$Sprite.play("default")
+	elif (invuln_timer > 0):
+		invuln_timer -= delta
+	
 	shot_timer -= delta
 	if Input.is_action_pressed("fire"):
 		_shoot()

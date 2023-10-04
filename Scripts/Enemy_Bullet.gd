@@ -6,11 +6,13 @@ var d_angle = 0
 var direction : Vector2
 
 
-func _init_vars(speed, angle, position, d_angle):
+func _init_vars(speed, angle, position, d_angle, d_angle_timeout = 15.0):
 	self.speed = speed
 	self.angle = angle
 	self.position = position
 	self.d_angle = d_angle
+	$"DAngle Timeout".wait_time = d_angle_timeout
+	$"DAngle Timeout".start()
 	
 	_update_direction()
 
@@ -44,3 +46,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body._hit()
 		queue_free()
+
+
+func _on_d_angle_timeout_timeout():
+	d_angle = 0

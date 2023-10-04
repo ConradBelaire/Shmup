@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4vjd7sjqtj2e"]
+
+[ext_resource type="Script" path="res://Scripts/TurkeyPattern1.gd" id="1_ymudh"]
+
+[node name="TurkeyPattern1" type="Node2D"]
+script = ExtResource("1_ymudh")

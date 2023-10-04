@@ -15,4 +15,8 @@ texture = ExtResource("2_mg7qu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xo0mk")
 
+[node name="DAngle Timeout" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DAngle Timeout" to="." method="_on_d_angle_timeout_timeout"]
