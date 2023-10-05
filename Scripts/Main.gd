@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var ui = $UI
 
-@export var starting_lives = 3
+#@export var starting_lives = 3
 
 @onready var menu_scene = load("res://Scenes/MainMenu.tscn")
 @onready var turkey_enemy_scene = preload("res://Scenes/TurkeyEnemy.tscn")
@@ -30,7 +30,7 @@ func _handle_update_life():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.lives = starting_lives
+	Global._reset()
 	player.connect("update_life", Callable(self, "_handle_update_life"))
 	_handle_update_life()
 	
@@ -50,4 +50,9 @@ func _on_enemy_1_defeated():
 	if (get_tree().get_nodes_in_group("Enemy").size() != 1): 
 		return
 	var turkey_enemy = turkey_enemy_scene.instantiate()
+	turkey_enemy.defeated.connect(_on_turkey_defeated)
 	add_child(turkey_enemy)
+
+func _on_turkey_defeated():
+	print("Turkey down!")
+	pass
