@@ -9,10 +9,11 @@ func _ready():
 	position.x = (top_left.x + bottom_right.x) / 2
 	position.y = top_left.y - 400
 	
-	pattern_scenes = [preload("res://Scenes/TurkeyPattern1.tscn")]
+	pattern_scenes = [preload("res://Scenes/TurkeyPattern1.tscn"), \
+	preload("res://Scenes/TurkeyPattern2.tscn")]
 	
-	hp_thresholds = [-1]
-	hp = 500
+	hp_thresholds = [750,-1]
+	hp = 1500
 	speed = 50
 
 

@@ -39,18 +39,18 @@ func _change_phase(phase_num):
 	pattern.queue_free()
 	phase = phase_num
 	pattern = pattern_scenes[phase-1].instantiate()
-	pattern._init_vars($Gun.position, owner)
+	pattern._init_vars($Gun.position, get_parent(), get_parent().find_child("Player"))
 	add_child(pattern)
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body._hit()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+## Called when the node enters the scene tree for the first time.
+#func _ready():
+#	pass # Replace with function body.
+#
+#
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

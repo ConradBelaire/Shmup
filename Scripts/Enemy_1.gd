@@ -12,8 +12,8 @@ func _ready():
 	pattern._init_vars($Gun.position, get_parent())
 	add_child(pattern)
 	
-	hp_thresholds = [15,-1]
-	hp = 5
+	hp_thresholds = [25,-1]
+	hp = 40
 	speed = 100
 
 
