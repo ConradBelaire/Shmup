@@ -6,6 +6,7 @@ extends Node2D
 #@export var starting_lives = 3
 
 @onready var menu_scene = load("res://Scenes/MainMenu.tscn")
+@onready var pause_scene = load("res://Scenes/Pause.tscn")
 @onready var turkey_enemy_scene = preload("res://Scenes/TurkeyEnemy.tscn")
 
 var game_over = false
