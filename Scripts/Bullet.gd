@@ -43,4 +43,5 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area._hit()
+		get_parent()._increase_super()
 		queue_free()

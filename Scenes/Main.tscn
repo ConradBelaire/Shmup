@@ -11,7 +11,7 @@
 [node name="Main" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_lbg5x")
-starting_lives = 50
+starting_lives = 10
 
 [node name="Background" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(0, 10)
