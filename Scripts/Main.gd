@@ -9,6 +9,8 @@ extends Node2D
 @onready var pause_scene = load("res://Scenes/Pause.tscn")
 @onready var turkey_enemy_scene = preload("res://Scenes/TurkeyEnemy.tscn")
 
+var pause_instance
+
 var game_over = false
 
 func _increase_super():
@@ -39,7 +41,22 @@ func _ready():
 	$ReturnTimer.stop()
 	$GameOver.visible = false
 
+func _process(delta):
+	if (Input.is_action_just_pressed("esc")):
+		_pause()
+	pass
 
+func _pause():
+	pause_instance = pause_scene.instantiate()
+	pause_instance.unpause.connect(_unpause)
+	pause_instance.z_index = 3
+	pause_instance.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(pause_instance)
+	get_tree().paused = true
+
+func _unpause():
+	get_tree().paused = false
+	pause_instance.queue_free()
 
 func _on_return_timer_timeout():
 	get_tree().paused = false

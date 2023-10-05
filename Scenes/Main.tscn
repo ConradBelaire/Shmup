@@ -45,13 +45,15 @@ position = Vector2(575, 98)
 rotation = 3.14159
 
 [node name="UI" parent="." instance=ExtResource("6_ycgcn")]
-z_index = 5
+z_index = 1
 offset_left = 1280.0
 offset_right = 1280.0
+mouse_filter = 1
 
 [node name="GameOver" parent="." instance=ExtResource("7_pisdv")]
 visible = false
-z_index = 10
+z_index = 2
+mouse_filter = 1
 
 [node name="ReturnTimer" type="Timer" parent="."]
 process_mode = 3
