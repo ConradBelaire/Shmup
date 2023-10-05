@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 300
 @export var slow_speed = 150
 @export var bullet: PackedScene
+@export var super_bullet: PackedScene
 
 signal update_life
 
@@ -23,10 +24,18 @@ func _shoot():
 		return
 	for i in 4:
 		var inst = bullet.instantiate()
-		owner.add_child(inst)
+		get_parent().add_child(inst)
 		inst._init_vars(shotspeed, 91.5 - 1*i, find_child("Gun" + str(i+1)).global_position, 0)
 	shot_timer = 1.0 / firerate
+
+func _super():
+	if (Global.super_val < Global.super_max):
+		return
+	get_parent()._spend_super()
 	
+	var inst = super_bullet.instantiate()
+	get_parent().add_child(inst)
+	inst._init_vars(400, 90, self.global_position, 0)
 
 func _hit():
 	if (!dead && !invuln):
@@ -73,6 +82,9 @@ func _process(delta):
 	shot_timer -= delta
 	if Input.is_action_pressed("fire"):
 		_shoot()
+	
+	if Input.is_action_pressed("special"):
+		_super()
 	
 	var velocity = Vector2.ZERO
 	var slowed = false

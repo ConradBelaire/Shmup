@@ -8,7 +8,7 @@
 [node name="Bullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("2_c0516")
 
-[node name="Bullet3" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
 texture = ExtResource("1_5bhxt")
 

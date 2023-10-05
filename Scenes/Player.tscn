@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkn07ulx62gun"]
+[gd_scene load_steps=9 format=3 uid="uid://dkn07ulx62gun"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wb7v0"]
 [ext_resource type="PackedScene" uid="uid://tk7ndt3suu4m" path="res://Scenes/Bullet.tscn" id="2_jewrf"]
 [ext_resource type="Texture2D" uid="uid://b2orberuh3g17" path="res://Sprites/ship2.png" id="2_tnt73"]
 [ext_resource type="Texture2D" uid="uid://buh5d06xd8ajo" path="res://Sprites/explosion.png" id="3_a3cdm"]
+[ext_resource type="PackedScene" uid="uid://bsla5ak6w6c2d" path="res://Scenes/SuperBullet.tscn" id="3_opicc"]
 [ext_resource type="Texture2D" uid="uid://crl50dk3vvffu" path="res://Sprites/ship_missing.png" id="5_ugi2h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j3ppw"]
@@ -42,6 +43,7 @@ height = 42.0
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_wb7v0")
 bullet = ExtResource("2_jewrf")
+super_bullet = ExtResource("3_opicc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j3ppw")

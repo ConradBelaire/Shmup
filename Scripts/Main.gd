@@ -10,6 +10,15 @@ extends Node2D
 
 var game_over = false
 
+func _increase_super():
+	if (Global.super_val < Global.super_max):
+		Global.super_val += 1
+		$UI.super_bar.value = Global.super_val * 100 / Global.super_max
+
+func _spend_super():
+	Global.super_val = 0
+	$UI.super_bar.value = 0
+
 func _handle_update_life():
 	ui.lives_counter.text = str(Global.lives)
 	
