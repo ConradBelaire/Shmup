@@ -2,7 +2,7 @@ extends "res://Scripts/BulletPattern.gd"
 
 var firerate = 9
 var shottimer = 0
-var angle = 0
+var angle = 200
 var d_angle = 280
 
 # Called when the node enters the scene tree for the first time.

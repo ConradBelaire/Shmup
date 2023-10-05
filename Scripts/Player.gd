@@ -35,7 +35,7 @@ func _super():
 	
 	var inst = super_bullet.instantiate()
 	get_parent().add_child(inst)
-	inst._init_vars(400, 90, self.global_position, 0)
+	inst._init_vars(600, 90, self.global_position, 0)
 
 func _hit():
 	if (!dead && !invuln):

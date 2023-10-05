@@ -12,9 +12,9 @@ func _ready():
 	pattern._init_vars($Gun.position, get_parent())
 	add_child(pattern)
 	
-	hp_thresholds = [15,-1]
-	hp = 5
-	speed = 100
+	hp_thresholds = [40,-1]
+	hp = 80
+	speed = 400
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
