@@ -13,7 +13,7 @@ func _ready():
 	add_child(pattern)
 	
 	hp_thresholds = [40,-1]
-	hp = 8
+	hp = 80
 	speed = 400
 
 

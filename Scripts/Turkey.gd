@@ -13,7 +13,7 @@ func _ready():
 	preload("res://Scenes/TurkeyPattern2.tscn")]
 	
 	hp_thresholds = [750,-1]
-	hp = 150
+	hp = 1500
 	speed = 50
 
 

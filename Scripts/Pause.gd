@@ -8,6 +8,7 @@ func _ready():
 	print("hi there")
 	pass # Replace with function body.
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	if (Input.is_action_just_pressed("esc")):
 		print("esc")

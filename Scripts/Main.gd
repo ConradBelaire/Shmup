@@ -73,4 +73,5 @@ func _on_enemy_1_defeated():
 
 func _on_turkey_defeated():
 	print("Turkey down!")
+	get_tree().change_scene_to_file("res://Scenes/End_screen.tscn")
 	pass
